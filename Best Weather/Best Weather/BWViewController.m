@@ -145,6 +145,13 @@
     [self.weather_cond setText:_weather.weather];
     [self.city setText:_weather.city];
     
+    [self.city setTextColor:[UIColor whiteColor]];
+    
+    //_background.image = [UIImage imageNamed:@"rainy.png"];
+    
+    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"rainy" ofType:@"png"];
+    _background.image = [UIImage imageWithContentsOfFile:fullpath];
+    
     _downloadXMLData = nil;
 }
 

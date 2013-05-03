@@ -22,6 +22,7 @@
 		184B72101734064F0017273F /* BWWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B720F1734064E0017273F /* BWWeather.m */; };
 		184B721317343EA50017273F /* BWLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B721217343EA50017273F /* BWLocationManager.m */; };
 		184B721517343F680017273F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B721417343F680017273F /* CoreLocation.framework */; };
+		184B721817346BEC0017273F /* rainy.png in Resources */ = {isa = PBXBuildFile; fileRef = 184B721717346BEC0017273F /* rainy.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		184B721117343EA40017273F /* BWLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWLocationManager.h; sourceTree = "<group>"; };
 		184B721217343EA50017273F /* BWLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWLocationManager.m; sourceTree = "<group>"; };
 		184B721417343F680017273F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		184B721717346BEC0017273F /* rainy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rainy.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		184B71EE1733FA2F0017273F /* Best Weather */ = {
 			isa = PBXGroup;
 			children = (
+				184B721617346BCA0017273F /* Backgrounds */,
 				184B71F71733FA2F0017273F /* BWAppDelegate.h */,
 				184B71F81733FA2F0017273F /* BWAppDelegate.m */,
 				184B72001733FA2F0017273F /* MainStoryboard.storyboard */,
@@ -124,6 +127,14 @@
 				184B71FE1733FA2F0017273F /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		184B721617346BCA0017273F /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				184B721717346BEC0017273F /* rainy.png */,
+			);
+			name = Backgrounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 				184B71FD1733FA2F0017273F /* Default@2x.png in Resources */,
 				184B71FF1733FA2F0017273F /* Default-568h@2x.png in Resources */,
 				184B72021733FA2F0017273F /* MainStoryboard.storyboard in Resources */,
+				184B721817346BEC0017273F /* rainy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
