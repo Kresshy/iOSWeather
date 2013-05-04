@@ -104,7 +104,7 @@
         return;
     }
     
-    NSURL* url = [NSURL URLWithString:@"http://api.wunderground.com/api/1581002a1df007d6/conditions/forecast/astronomy/q/Hungary/Budapest/.xml"];
+    NSURL* url = [NSURL URLWithString:@"http://api.wunderground.com/api/1581002a1df007d6/conditions/forecast/astronomy/q/Italy/Rovigo/.xml"];
     
     NSURLRequest* request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:15.0];
     
@@ -145,12 +145,101 @@
     [self.weather_cond setText:_weather.weather];
     [self.city setText:_weather.city];
     
-    [self.city setTextColor:[UIColor whiteColor]];
+    if ([_weather.weather rangeOfString:@"Cloudy"].location != NSNotFound) {
+        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"cloudy" ofType:@"png"];
+        _background.image = [UIImage imageWithContentsOfFile:fullpath];
+        [self.city setTextColor:[UIColor whiteColor]];
+        [self.weather_cond setTextColor:[UIColor whiteColor]];
+        [self.temperature setTextColor:[UIColor whiteColor]];
+    }
     
-    //_background.image = [UIImage imageNamed:@"rainy.png"];
+    if ([_weather.weather rangeOfString:@"Clear"].location != NSNotFound) {
+        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"clear" ofType:@"png"];
+        _background.image = [UIImage imageWithContentsOfFile:fullpath];
+        [self.city setTextColor:[UIColor whiteColor]];
+        [self.weather_cond setTextColor:[UIColor whiteColor]];
+        [self.temperature setTextColor:[UIColor whiteColor]];
+    }
     
-    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"rainy" ofType:@"png"];
-    _background.image = [UIImage imageWithContentsOfFile:fullpath];
+    if ([_weather.weather rangeOfString:@"Rain"].location != NSNotFound) {
+        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"rainy" ofType:@"png"];
+        _background.image = [UIImage imageWithContentsOfFile:fullpath];
+        [self.city setTextColor:[UIColor whiteColor]];
+        [self.weather_cond setTextColor:[UIColor whiteColor]];
+        [self.temperature setTextColor:[UIColor whiteColor]];
+    }
+    
+    if ([_weather.weather rangeOfString:@"Drizzle"].location != NSNotFound) {
+        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"rainy" ofType:@"png"];
+        _background.image = [UIImage imageWithContentsOfFile:fullpath];
+        [self.city setTextColor:[UIColor whiteColor]];
+        [self.weather_cond setTextColor:[UIColor whiteColor]];
+        [self.temperature setTextColor:[UIColor whiteColor]];
+    }
+    
+    if ([_weather.weather rangeOfString:@"Snow"].location != NSNotFound) {
+        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"snow" ofType:@"png"];
+        _background.image = [UIImage imageWithContentsOfFile:fullpath];
+        [self.city setTextColor:[UIColor whiteColor]];
+        [self.weather_cond setTextColor:[UIColor whiteColor]];
+        [self.temperature setTextColor:[UIColor whiteColor]];
+    }
+    
+    if ([_weather.weather rangeOfString:@"Thunder"].location != NSNotFound) {
+        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"storm" ofType:@"png"];
+        _background.image = [UIImage imageWithContentsOfFile:fullpath];
+        [self.city setTextColor:[UIColor whiteColor]];
+        [self.weather_cond setTextColor:[UIColor whiteColor]];
+        [self.temperature setTextColor:[UIColor whiteColor]];
+    }
+    
+    if ([_weather.weather rangeOfString:@"Haze"].location != NSNotFound) {
+        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"fog" ofType:@"png"];
+        _background.image = [UIImage imageWithContentsOfFile:fullpath];
+        [self.city setTextColor:[UIColor blackColor]];
+        [self.weather_cond setTextColor:[UIColor blackColor]];
+        [self.temperature setTextColor:[UIColor blackColor]];
+    }
+    
+    if ([_weather.weather rangeOfString:@"Fog"].location != NSNotFound) {
+        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"fog" ofType:@"png"];
+        _background.image = [UIImage imageWithContentsOfFile:fullpath];
+        [self.city setTextColor:[UIColor blackColor]];
+        [self.weather_cond setTextColor:[UIColor blackColor]];
+        [self.temperature setTextColor:[UIColor blackColor]];
+    }
+    
+    if ([_weather.weather rangeOfString:@"Hail"].location != NSNotFound) {
+        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"hail" ofType:@"png"];
+        _background.image = [UIImage imageWithContentsOfFile:fullpath];
+        [self.city setTextColor:[UIColor whiteColor]];
+        [self.weather_cond setTextColor:[UIColor whiteColor]];
+        [self.temperature setTextColor:[UIColor whiteColor]];
+    }
+    
+    if ([_weather.weather rangeOfString:@"Dust"].location != NSNotFound) {
+        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"dust" ofType:@"png"];
+        _background.image = [UIImage imageWithContentsOfFile:fullpath];
+        [self.city setTextColor:[UIColor whiteColor]];
+        [self.weather_cond setTextColor:[UIColor whiteColor]];
+        [self.temperature setTextColor:[UIColor whiteColor]];
+    }
+    
+    if ([_weather.weather rangeOfString:@"Sand"].location != NSNotFound) {
+        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"sand" ofType:@"png"];
+        _background.image = [UIImage imageWithContentsOfFile:fullpath];
+        [self.city setTextColor:[UIColor whiteColor]];
+        [self.weather_cond setTextColor:[UIColor whiteColor]];
+        [self.temperature setTextColor:[UIColor whiteColor]];
+    }
+    
+    if ([_weather.weather rangeOfString:@"Ash"].location != NSNotFound) {
+        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"ash" ofType:@"png"];
+        _background.image = [UIImage imageWithContentsOfFile:fullpath];
+        [self.city setTextColor:[UIColor whiteColor]];
+        [self.weather_cond setTextColor:[UIColor whiteColor]];
+        [self.temperature setTextColor:[UIColor whiteColor]];
+    }
     
     _downloadXMLData = nil;
 }

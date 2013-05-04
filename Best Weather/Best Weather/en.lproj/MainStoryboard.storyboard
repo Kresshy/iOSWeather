@@ -13,25 +13,26 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Plg-He-u0N">
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <gestureRecognizers/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozN-ZV-fMc">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozN-ZV-fMc">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="lcW-dj-OTL"/>
+                                    <constraint firstAttribute="height" constant="91" id="jzk-8N-E5p"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="57"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J61-na-aZh">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J61-na-aZh">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Pmx-j0-2lv"/>
+                                    <constraint firstAttribute="height" constant="55" id="eR1-mb-Did"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8N0-0P-jyW">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8N0-0P-jyW">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="t6w-rd-BFW"/>
                                 </constraints>
@@ -50,6 +51,7 @@
                             <constraint firstItem="Plg-He-u0N" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="QXM-9o-fwC"/>
                             <constraint firstItem="J61-na-aZh" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="SDK-f7-5x1"/>
                             <constraint firstAttribute="bottom" secondItem="ozN-ZV-fMc" secondAttribute="bottom" constant="94" id="ZMk-IZ-pFe"/>
+                            <constraint firstAttribute="trailing" secondItem="ozN-ZV-fMc" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="goG-lN-oJc"/>
                             <constraint firstItem="8N0-0P-jyW" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="hfv-kR-TfI"/>
                             <constraint firstItem="Plg-He-u0N" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="nSE-s2-C4Z"/>
                             <constraint firstItem="Plg-He-u0N" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="nnX-5x-4XI"/>
