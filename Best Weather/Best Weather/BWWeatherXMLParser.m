@@ -15,6 +15,7 @@
     if (self = [super init]) {
         _weather = [[BWWeather alloc] init];
         _cityHasBeenSet = FALSE;
+        _countryHasBeenSet = FALSE;
     }
 
     return self;
@@ -40,6 +41,14 @@
             NSLog(@"Processing Value: %@", @"city");
             _weather.city = _currentElementValue;
             _cityHasBeenSet = TRUE;
+        }
+    }
+    
+    if ([elementName isEqualToString:@"country"]) {
+        if (!_countryHasBeenSet) {
+            NSLog(@"Processing Value: %@", @"country");
+            _weather.countryCode = _currentElementValue;
+            _countryHasBeenSet = TRUE;
         }
     }
     

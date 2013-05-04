@@ -14,6 +14,7 @@
     NSString* _currentElementValue;
     BWWeather* _weather;
     bool _cityHasBeenSet;
+    bool _countryHasBeenSet;
     
 }
 

@@ -8,6 +8,8 @@
 
 #import "BWViewController.h"
 #import "BWWeatherXMLParser.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @interface BWViewController () {
 
@@ -143,10 +145,34 @@
     
     [self.temperature setText:[_weather.temp_c stringByAppendingString:@" °C"]];
     [self.weather_cond setText:_weather.weather];
-    [self.city setText:_weather.city];
+    [self.city setText:[_weather.city stringByAppendingString:[NSString stringWithFormat:@", %@", _weather.countryCode]]];
+    
+    self.city.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+    self.weather_cond.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+    self.temperature.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+    
+    self.city.layer.cornerRadius = 8;
+    self.weather_cond.layer.cornerRadius = 8;
+    self.temperature.layer.cornerRadius = 8;
     
     if ([_weather.weather rangeOfString:@"Cloudy"].location != NSNotFound) {
         NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"cloudy" ofType:@"png"];
+        _background.image = [UIImage imageWithContentsOfFile:fullpath];
+        [self.city setTextColor:[UIColor whiteColor]];
+        [self.weather_cond setTextColor:[UIColor whiteColor]];
+        [self.temperature setTextColor:[UIColor whiteColor]];
+    }
+    
+    if ([_weather.weather rangeOfString:@"Clouds"].location != NSNotFound) {
+        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"clouds" ofType:@"png"];
+        _background.image = [UIImage imageWithContentsOfFile:fullpath];
+        [self.city setTextColor:[UIColor whiteColor]];
+        [self.weather_cond setTextColor:[UIColor whiteColor]];
+        [self.temperature setTextColor:[UIColor whiteColor]];
+    }
+    
+    if ([_weather.weather rangeOfString:@"Overcast"].location != NSNotFound) {
+        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"overcast" ofType:@"png"];
         _background.image = [UIImage imageWithContentsOfFile:fullpath];
         [self.city setTextColor:[UIColor whiteColor]];
         [self.weather_cond setTextColor:[UIColor whiteColor]];

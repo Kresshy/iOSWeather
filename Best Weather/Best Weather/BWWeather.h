@@ -11,6 +11,7 @@
 @interface BWWeather : NSObject
 
 @property (strong, nonatomic) NSString* city;
+@property (strong, nonatomic) NSString* countryCode;
 @property (strong, nonatomic) NSString* weather;
 @property (strong, nonatomic) NSString* temp_c;
 @property (strong, nonatomic) NSString* humidity;

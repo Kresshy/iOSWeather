@@ -32,6 +32,9 @@
 		184B7229173513AE0017273F /* fog.png in Resources */ = {isa = PBXBuildFile; fileRef = 184B7228173513AE0017273F /* fog.png */; };
 		184B722B173513B90017273F /* hail.png in Resources */ = {isa = PBXBuildFile; fileRef = 184B722A173513B90017273F /* hail.png */; };
 		184B722D173513C40017273F /* sand.png in Resources */ = {isa = PBXBuildFile; fileRef = 184B722C173513C40017273F /* sand.png */; };
+		184B722F173557680017273F /* clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 184B722E173557670017273F /* clouds.png */; };
+		184B72311735577F0017273F /* overcast.png in Resources */ = {isa = PBXBuildFile; fileRef = 184B72301735577F0017273F /* overcast.png */; };
+		184B723317355B350017273F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B723217355B350017273F /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +71,9 @@
 		184B7228173513AE0017273F /* fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fog.png; sourceTree = "<group>"; };
 		184B722A173513B90017273F /* hail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hail.png; sourceTree = "<group>"; };
 		184B722C173513C40017273F /* sand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sand.png; sourceTree = "<group>"; };
+		184B722E173557670017273F /* clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clouds.png; sourceTree = "<group>"; };
+		184B72301735577F0017273F /* overcast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overcast.png; sourceTree = "<group>"; };
+		184B723217355B350017273F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184B723317355B350017273F /* QuartzCore.framework in Frameworks */,
 				184B721517343F680017273F /* CoreLocation.framework in Frameworks */,
 				184B71E91733FA2F0017273F /* UIKit.framework in Frameworks */,
 				184B71EB1733FA2F0017273F /* Foundation.framework in Frameworks */,
@@ -88,6 +95,7 @@
 		184B71DC1733FA2E0017273F = {
 			isa = PBXGroup;
 			children = (
+				184B723217355B350017273F /* QuartzCore.framework */,
 				184B721417343F680017273F /* CoreLocation.framework */,
 				184B71EE1733FA2F0017273F /* Best Weather */,
 				184B71E71733FA2F0017273F /* Frameworks */,
@@ -150,6 +158,8 @@
 		184B7219173507430017273F /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				184B72301735577F0017273F /* overcast.png */,
+				184B722E173557670017273F /* clouds.png */,
 				184B722C173513C40017273F /* sand.png */,
 				184B722A173513B90017273F /* hail.png */,
 				184B7228173513AE0017273F /* fog.png */,
@@ -231,6 +241,8 @@
 				184B7229173513AE0017273F /* fog.png in Resources */,
 				184B722B173513B90017273F /* hail.png in Resources */,
 				184B722D173513C40017273F /* sand.png in Resources */,
+				184B722F173557680017273F /* clouds.png in Resources */,
+				184B72311735577F0017273F /* overcast.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
