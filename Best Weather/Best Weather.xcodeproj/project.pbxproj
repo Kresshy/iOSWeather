@@ -35,6 +35,8 @@
 		184B722F173557680017273F /* clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 184B722E173557670017273F /* clouds.png */; };
 		184B72311735577F0017273F /* overcast.png in Resources */ = {isa = PBXBuildFile; fileRef = 184B72301735577F0017273F /* overcast.png */; };
 		184B723317355B350017273F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B723217355B350017273F /* QuartzCore.framework */; };
+		184B72351743DD520017273F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B72341743DD520017273F /* CoreData.framework */; };
+		184B72381743DE000017273F /* BWWeatherModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 184B72361743DE000017273F /* BWWeatherModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		184B722E173557670017273F /* clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clouds.png; sourceTree = "<group>"; };
 		184B72301735577F0017273F /* overcast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overcast.png; sourceTree = "<group>"; };
 		184B723217355B350017273F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		184B72341743DD520017273F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		184B72371743DE000017273F /* BWWeatherModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BWWeatherModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184B72351743DD520017273F /* CoreData.framework in Frameworks */,
 				184B723317355B350017273F /* QuartzCore.framework in Frameworks */,
 				184B721517343F680017273F /* CoreLocation.framework in Frameworks */,
 				184B71E91733FA2F0017273F /* UIKit.framework in Frameworks */,
@@ -95,8 +100,6 @@
 		184B71DC1733FA2E0017273F = {
 			isa = PBXGroup;
 			children = (
-				184B723217355B350017273F /* QuartzCore.framework */,
-				184B721417343F680017273F /* CoreLocation.framework */,
 				184B71EE1733FA2F0017273F /* Best Weather */,
 				184B71E71733FA2F0017273F /* Frameworks */,
 				184B71E61733FA2F0017273F /* Products */,
@@ -114,6 +117,9 @@
 		184B71E71733FA2F0017273F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				184B72341743DD520017273F /* CoreData.framework */,
+				184B723217355B350017273F /* QuartzCore.framework */,
+				184B721417343F680017273F /* CoreLocation.framework */,
 				184B71E81733FA2F0017273F /* UIKit.framework */,
 				184B71EA1733FA2F0017273F /* Foundation.framework */,
 				184B71EC1733FA2F0017273F /* CoreGraphics.framework */,
@@ -137,6 +143,7 @@
 				184B720F1734064E0017273F /* BWWeather.m */,
 				184B721117343EA40017273F /* BWLocationManager.h */,
 				184B721217343EA50017273F /* BWLocationManager.m */,
+				184B72361743DE000017273F /* BWWeatherModel.xcdatamodeld */,
 			);
 			path = "Best Weather";
 			sourceTree = "<group>";
@@ -259,6 +266,7 @@
 				184B720D173403B10017273F /* BWWeatherXMLParser.m in Sources */,
 				184B72101734064F0017273F /* BWWeather.m in Sources */,
 				184B721317343EA50017273F /* BWLocationManager.m in Sources */,
+				184B72381743DE000017273F /* BWWeatherModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +392,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		184B72361743DE000017273F /* BWWeatherModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				184B72371743DE000017273F /* BWWeatherModel.xcdatamodel */,
+			);
+			currentVersion = 184B72371743DE000017273F /* BWWeatherModel.xcdatamodel */;
+			path = BWWeatherModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 184B71DD1733FA2F0017273F /* Project object */;
 }
