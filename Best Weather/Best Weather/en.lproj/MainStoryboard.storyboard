@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="RMd-pv-ibl">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="aMn-Pr-Zd0">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="RMd-pv-ibl" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eQA-Gc-whg">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="0ZZ-88-bN7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m9q-cE-KJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="207" y="-391"/>
+        </scene>
+        <!--View Controller - Weather-->
         <scene sceneID="5">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="g9q-FA-9FQ">
+                    <connections>
+                        <action selector="handleSwipe:" destination="2" id="vQY-21-DbK"/>
+                    </connections>
+                </swipeGestureRecognizer>
                 <viewController id="2" customClass="BWViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Plg-He-u0N">
@@ -17,6 +38,7 @@
                                 <gestureRecognizers/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozN-ZV-fMc">
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="91" id="jzk-8N-E5p"/>
                                 </constraints>
@@ -62,6 +84,13 @@
                             <outletCollection property="gestureRecognizers" destination="g9q-FA-9FQ" appends="YES" id="VmW-SU-O7i"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="Weather" id="kD1-H9-jFs">
+                        <barButtonItem key="rightBarButtonItem" title="Forecast" id="EPh-6T-hlu">
+                            <connections>
+                                <segue destination="N9k-Dv-Squ" kind="push" id="7fs-CL-dbV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="background" destination="Plg-He-u0N" id="r0R-ap-p6Q"/>
                         <outlet property="city" destination="J61-na-aZh" id="LiZ-X7-xAf"/>
@@ -70,31 +99,113 @@
                         <outlet property="weather_cond" destination="8N0-0P-jyW" id="sAv-QP-ZqM"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="up" id="g9q-FA-9FQ">
-                    <connections>
-                        <action selector="handleSwipe:" destination="2" id="vQY-21-DbK"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="170" y="153"/>
+            <point key="canvasLocation" x="724" y="-391"/>
+        </scene>
+        <!--Forecast View Controller - Forecast-->
+        <scene sceneID="uLf-b1-xUO">
+            <objects>
+                <viewController id="N9k-Dv-Squ" customClass="BWForecastViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BSh-cN-mxd">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0As-Ys-ytw">
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPU-zO-vyC">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="1Oj-eU-W6L"/>
+                                    <constraint firstAttribute="width" constant="112" id="6AQ-tQ-20w"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8cW-ko-BoY">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="Lwa-pK-hu9"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSr-5d-GuL">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="imK-Zw-BW5"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNF-Lo-zD6">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="6tl-6z-abT"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="160" translatesAutoresizingMaskIntoConstraints="NO" id="Gld-Ww-znT">
+                                <attributedString key="attributedText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="160" translatesAutoresizingMaskIntoConstraints="NO" id="TaA-VB-fzG">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="160" translatesAutoresizingMaskIntoConstraints="NO" id="GtN-8V-Lej">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="160" translatesAutoresizingMaskIntoConstraints="NO" id="Vor-cd-Xs0">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TaA-VB-fzG" firstAttribute="leading" secondItem="Gld-Ww-znT" secondAttribute="leading" type="default" id="3EO-em-d31"/>
+                            <constraint firstItem="GtN-8V-Lej" firstAttribute="leading" secondItem="CSr-5d-GuL" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="4I9-RR-1Ff"/>
+                            <constraint firstItem="TaA-VB-fzG" firstAttribute="leading" secondItem="8cW-ko-BoY" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="9oB-dg-0GA"/>
+                            <constraint firstAttribute="trailing" secondItem="Gld-Ww-znT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="B4S-Hb-SNz"/>
+                            <constraint firstItem="jNF-Lo-zD6" firstAttribute="top" secondItem="CSr-5d-GuL" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="EWS-3L-4dz"/>
+                            <constraint firstItem="TaA-VB-fzG" firstAttribute="top" secondItem="8cW-ko-BoY" secondAttribute="top" type="default" id="Ect-Nn-tL4"/>
+                            <constraint firstItem="CSr-5d-GuL" firstAttribute="leading" secondItem="BSh-cN-mxd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="G5w-qo-ITv"/>
+                            <constraint firstItem="Gld-Ww-znT" firstAttribute="leading" secondItem="bPU-zO-vyC" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="HAI-kB-57d"/>
+                            <constraint firstItem="GtN-8V-Lej" firstAttribute="top" secondItem="CSr-5d-GuL" secondAttribute="top" type="default" id="J1T-FZ-W3I"/>
+                            <constraint firstItem="8cW-ko-BoY" firstAttribute="leading" secondItem="BSh-cN-mxd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="OpF-lg-6Nt"/>
+                            <constraint firstItem="0As-Ys-ytw" firstAttribute="bottom" secondItem="BSh-cN-mxd" secondAttribute="bottom" type="default" id="PsZ-pS-qNW"/>
+                            <constraint firstItem="Vor-cd-Xs0" firstAttribute="top" secondItem="GtN-8V-Lej" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="QqI-9Y-47l"/>
+                            <constraint firstItem="TaA-VB-fzG" firstAttribute="top" secondItem="Gld-Ww-znT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Ush-03-Cbg"/>
+                            <constraint firstItem="GtN-8V-Lej" firstAttribute="top" secondItem="TaA-VB-fzG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="W0f-AT-HfZ"/>
+                            <constraint firstAttribute="trailing" secondItem="TaA-VB-fzG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="XSh-nH-V8c"/>
+                            <constraint firstItem="0As-Ys-ytw" firstAttribute="leading" secondItem="BSh-cN-mxd" secondAttribute="leading" type="default" id="YLN-3n-dkj"/>
+                            <constraint firstItem="0As-Ys-ytw" firstAttribute="top" secondItem="BSh-cN-mxd" secondAttribute="top" type="default" id="Zxc-Qc-drR"/>
+                            <constraint firstAttribute="trailing" secondItem="GtN-8V-Lej" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ayd-JV-FQh"/>
+                            <constraint firstItem="jNF-Lo-zD6" firstAttribute="leading" secondItem="BSh-cN-mxd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="bsm-Kf-og1"/>
+                            <constraint firstItem="bPU-zO-vyC" firstAttribute="leading" secondItem="BSh-cN-mxd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="cQh-JW-rTJ"/>
+                            <constraint firstItem="CSr-5d-GuL" firstAttribute="top" secondItem="8cW-ko-BoY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dNl-jk-Kb7"/>
+                            <constraint firstItem="8cW-ko-BoY" firstAttribute="top" secondItem="bPU-zO-vyC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="fGt-a0-eS7"/>
+                            <constraint firstItem="Vor-cd-Xs0" firstAttribute="leading" secondItem="jNF-Lo-zD6" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="fP7-AB-h9R"/>
+                            <constraint firstItem="Vor-cd-Xs0" firstAttribute="top" secondItem="jNF-Lo-zD6" secondAttribute="top" type="default" id="fRz-Cd-3fC"/>
+                            <constraint firstItem="Vor-cd-Xs0" firstAttribute="bottom" secondItem="jNF-Lo-zD6" secondAttribute="bottom" type="default" id="fn6-z6-ef4"/>
+                            <constraint firstItem="Vor-cd-Xs0" firstAttribute="leading" secondItem="GtN-8V-Lej" secondAttribute="leading" type="default" id="hLP-4H-lVZ"/>
+                            <constraint firstItem="0As-Ys-ytw" firstAttribute="trailing" secondItem="BSh-cN-mxd" secondAttribute="trailing" type="default" id="iKO-B1-heo"/>
+                            <constraint firstAttribute="trailing" secondItem="Vor-cd-Xs0" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oXe-qF-5nJ"/>
+                            <constraint firstItem="Gld-Ww-znT" firstAttribute="top" secondItem="bPU-zO-vyC" secondAttribute="top" type="default" id="sml-ki-0LP"/>
+                            <constraint firstItem="bPU-zO-vyC" firstAttribute="top" secondItem="BSh-cN-mxd" secondAttribute="top" constant="16" id="uou-qz-2we"/>
+                            <constraint firstItem="GtN-8V-Lej" firstAttribute="leading" secondItem="TaA-VB-fzG" secondAttribute="leading" type="default" id="zt9-8o-P6x"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Forecast" id="JFT-lq-RLD"/>
+                    <connections>
+                        <outlet property="forecastImage1" destination="bPU-zO-vyC" id="dRa-8G-6gJ"/>
+                        <outlet property="forecastImage2" destination="8cW-ko-BoY" id="5bq-jv-cVh"/>
+                        <outlet property="forecastImage3" destination="CSr-5d-GuL" id="iCR-25-3zU"/>
+                        <outlet property="forecastImage4" destination="jNF-Lo-zD6" id="7W3-1V-dCV"/>
+                        <outlet property="forecastLabel1" destination="Gld-Ww-znT" id="Aha-yh-qja"/>
+                        <outlet property="forecastLabel2" destination="TaA-VB-fzG" id="KVA-Ut-9lD"/>
+                        <outlet property="forecastLabel3" destination="GtN-8V-Lej" id="KdQ-hW-wkm"/>
+                        <outlet property="forecastLabel4" destination="Vor-cd-Xs0" id="bCy-Tu-wPu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N6R-eg-jJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1271" y="-391"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="BWViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="handleSwipe:" candidateClass="UISwipeGestureRecognizer"/>
-                <relationship kind="outlet" name="background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="city" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="temperature" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="weather_cond" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

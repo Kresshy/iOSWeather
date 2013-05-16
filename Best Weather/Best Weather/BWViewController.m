@@ -26,7 +26,6 @@
 
 - (IBAction)handleSwipe:(UISwipeGestureRecognizer *)sender;
 
-
 @end
 
 @implementation BWViewController
@@ -40,6 +39,12 @@
     _locationManager.delegate = self;
     
     _location = [_locationManager location];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] init];
+    navigationController = self.navigationController;
+    
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    
     
 }
 
@@ -76,9 +81,17 @@
                      return;
                  }
                  
-                 NSString* urlString = [NSString stringWithFormat:@"http://api.wunderground.com/api/1581002a1df007d6/conditions/forecast/astronomy/q/%@/%@/.xml", placemark.country, placemark.locality];
+                 NSString *urlString;
                  
-                 //NSURL* url = [NSURL URLWithString:@"http://api.wunderground.com/api/1581002a1df007d6/conditions/forecast/astronomy/q/Hungary/Budapest/.xml"];
+                 if ([placemark.country rangeOfString:@"United States"].location != NSNotFound) {
+                     
+                     urlString = [[NSString stringWithFormat:@"http://api.wunderground.com/api/1581002a1df007d6/conditions/forecast/astronomy/q/%@/%@/.xml", placemark.administrativeArea, placemark.locality] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                     
+                 } else {
+                 
+                     urlString = [[NSString stringWithFormat:@"http://api.wunderground.com/api/1581002a1df007d6/conditions/forecast/astronomy/q/%@/%@/.xml", placemark.country, placemark.locality] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                 }
+                 
                  
                  NSURL* url = [NSURL URLWithString:urlString];
                  
@@ -105,16 +118,58 @@
     if (_downloadXMLUrlConnection) {
         return;
     }
-    
-    NSURL* url = [NSURL URLWithString:@"http://api.wunderground.com/api/1581002a1df007d6/conditions/forecast/astronomy/q/Italy/Rovigo/.xml"];
-    
-    NSURLRequest* request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:15.0];
-    
-    _downloadXMLUrlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    _downloadXMLData = [NSMutableData data];
-    
-    [_downloadXMLUrlConnection start];
+    CLGeocoder* geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:_location completionHandler:
+     ^(NSArray* placemarks, NSError* error) {
+         
+         if ([placemarks count] > 0)
+         {
+             //Get nearby address
+             CLPlacemark *placemark = [placemarks objectAtIndex:0];
+             
+             //String to hold address
+             NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+             
+             //Print the location to console
+             NSLog(@"I am currently at %@",locatedAt);
+             NSLog(@"Country: %@",placemark.country);
+             NSLog(@"Locality: %@",placemark.locality);
+             NSLog(@"Sublocality: %@",placemark.subLocality);
+             NSLog(@"AdministrativeArea: %@",placemark.administrativeArea);
+             NSLog(@"ISOCountryCode: %@",placemark.ISOcountryCode);
+             NSLog(@"Thoroughfare: %@",placemark.thoroughfare);
+             
+             //Set the label text to current location
+             //[locationLabel setText:locatedAt];
+             
+             if (_downloadXMLUrlConnection) {
+                 return;
+             }
+             
+             NSString *urlString;
+             
+             if ([placemark.country rangeOfString:@"United States"].location != NSNotFound) {
+                 
+                 urlString = [[NSString stringWithFormat:@"http://api.wunderground.com/api/1581002a1df007d6/conditions/forecast/astronomy/q/%@/%@/.xml", placemark.administrativeArea, placemark.locality] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                 
+             } else {
+                 
+                 urlString = [[NSString stringWithFormat:@"http://api.wunderground.com/api/1581002a1df007d6/conditions/forecast/astronomy/q/%@/%@/.xml", placemark.country, placemark.locality] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+             }
+             
+             
+             NSURL* url = [NSURL URLWithString:urlString];
+             
+             NSURLRequest* request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:15.0];
+             
+             _downloadXMLUrlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+             
+             _downloadXMLData = [NSMutableData data];
+             
+             [_downloadXMLUrlConnection start];
+             
+         }
+     }];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response

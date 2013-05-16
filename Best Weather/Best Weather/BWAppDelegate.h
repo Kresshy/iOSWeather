@@ -19,6 +19,6 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-+(BWAppDelegate*) sharedAppDelegate;
++ (BWAppDelegate*) sharedAppDelegate;
 
 @end

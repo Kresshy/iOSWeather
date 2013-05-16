@@ -14,8 +14,14 @@
 
     if (self = [super init]) {
         _weather = [[BWWeather alloc] init];
+        _forecast = [[BWForecast alloc] init];
         _cityHasBeenSet = FALSE;
         _countryHasBeenSet = FALSE;
+        _celsiusHighHasBeenSet = FALSE;
+        _forecastHasBeenRead = FALSE;
+        _currentForecastElements = [NSMutableArray array];
+        self.forecastElements = [NSMutableArray array];
+        
     }
 
     return self;
@@ -24,6 +30,8 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName
   namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
     attributes:(NSDictionary *)attributeDict {
+    
+    
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
@@ -73,7 +81,41 @@
     
     }
     
+    if ([elementName isEqualToString:@"weekday"]) {
+        NSLog(@"Processing Value: %@", @"weekday_short");
+        _forecast.day = _currentElementValue;
+        
+    }
+    
+    if ([elementName isEqualToString:@"celsius"]) {
+
+        if (_celsiusHighHasBeenSet) {
+            NSLog(@"Processing Value: %@ %@", @"celsius_low", _currentElementValue);
+            _forecast.temp_c_low = _currentElementValue;
+            _celsiusHighHasBeenSet = FALSE;
+        } else {
+            NSLog(@"Processing Value: %@ %@", @"celsius_high", _currentElementValue);
+            _forecast.temp_c_high = _currentElementValue;
+            _celsiusHighHasBeenSet = TRUE;
+        }
+    }
+    
+    if ([elementName isEqualToString:@"conditions"]) {
+        NSLog(@"Processing Value: %@", @"conditions");
+        _forecast.weather = _currentElementValue;
+        _forecastHasBeenRead = TRUE;
+        
+    }
+    
+    [self setForecast:_forecast];
     [self setWeather:_weather];
+    
+    if (_forecastHasBeenRead) {
+        NSLog(@"Processing Value: %@", @"Adding forecast");
+        [self.forecastElements addObject:_forecast];
+        _forecast = [[BWForecast alloc] init];
+        _forecastHasBeenRead = FALSE;
+    }
     
 }
 
