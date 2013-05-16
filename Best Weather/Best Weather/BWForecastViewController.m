@@ -241,14 +241,328 @@
                                                             attributes:attrs];
     
     [self.forecastLabel4 setAttributedText:attributedText];
-/*
-    if ([_weather.weather rangeOfString:@"Ash"].location != NSNotFound) {
-        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"ash" ofType:@"png"];
-        _background.image = [UIImage imageWithContentsOfFile:fullpath];
-        [self.city setTextColor:[UIColor whiteColor]];
-        [self.weather_cond setTextColor:[UIColor whiteColor]];
-        [self.temperature setTextColor:[UIColor whiteColor]];
-    }*/
+    index = 0;
+    for (int i = 0; i < 4; i++) {
+        BWForecast* forecast = [_forecasts objectAtIndex: index];
+        
+        switch (index) {
+            case 0:
+                self.forecastImage1.contentMode = UIViewContentModeScaleAspectFit;
+                
+                if ([forecast.weather rangeOfString:@"Cloudy"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"cloudypic" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                
+                if ([forecast.weather rangeOfString:@"Clouds"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"clouds" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                
+                if ([forecast.weather rangeOfString:@"Overcast"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"overcastpic" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                
+                if ([forecast.weather rangeOfString:@"Clear"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"sunny" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                
+                if ([forecast.weather rangeOfString:@"Rain"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofrain" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                
+                if ([forecast.weather rangeOfString:@"Drizzle"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"fogpic" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                
+                if ([forecast.weather rangeOfString:@"Snow"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofsnow" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                
+                if ([forecast.weather rangeOfString:@"Thunder"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofstrom" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                
+                if ([forecast.weather rangeOfString:@"Haze"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"hazepic" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                
+                if ([forecast.weather rangeOfString:@"Fog"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"fogpic" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                
+                if ([forecast.weather rangeOfString:@"Hail"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofrain" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                
+                if ([forecast.weather rangeOfString:@"Dust"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"smokepic" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                
+                if ([forecast.weather rangeOfString:@"Sand"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"smokepic" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                
+                if ([forecast.weather rangeOfString:@"Ash"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"smokepic" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"na" ofType:@"png"];
+                    self.forecastImage1.image = [UIImage imageWithContentsOfFile:fullpath];
+                }
+                
+                break;
+                
+            case 1:
+                self.forecastImage2.contentMode = UIViewContentModeScaleAspectFit;
+                
+                if ([forecast.weather rangeOfString:@"Cloudy"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"cloudypic" ofType:@"png"];
+                    self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                    
+                if ([forecast.weather rangeOfString:@"Clouds"].location != NSNotFound) {
+                        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"clouds" ofType:@"png"];
+                        self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                    
+                if ([forecast.weather rangeOfString:@"Overcast"].location != NSNotFound) {
+                            NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"overcastpic" ofType:@"png"];
+                            self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                            
+                if ([forecast.weather rangeOfString:@"Clear"].location != NSNotFound) {
+                  NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"sunny" ofType:@"png"];
+                    self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                                
+                if ([forecast.weather rangeOfString:@"Rain"].location != NSNotFound) {
+                  NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofrain" ofType:@"png"];
+                  self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                                    
+                if ([forecast.weather rangeOfString:@"Drizzle"].location != NSNotFound) {
+                  NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"fogpic" ofType:@"png"];
+                  self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                                        
+                if ([forecast.weather rangeOfString:@"Snow"].location != NSNotFound) {
+                  NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofsnow" ofType:@"png"];
+                  self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                                            
+                if ([forecast.weather rangeOfString:@"Thunder"].location != NSNotFound) {
+                  NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofstrom" ofType:@"png"];
+                  self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                                                
+                if ([forecast.weather rangeOfString:@"Haze"].location != NSNotFound) {
+                  NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"hazepic" ofType:@"png"];
+                  self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                                                    
+                if ([forecast.weather rangeOfString:@"Fog"].location != NSNotFound) {
+                  NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"fogpic" ofType:@"png"];
+                  self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                                                        
+                if ([forecast.weather rangeOfString:@"Hail"].location != NSNotFound) {
+                  NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofrain" ofType:@"png"];
+                  self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                                                            
+                if ([forecast.weather rangeOfString:@"Dust"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"smokepic" ofType:@"png"];
+                    self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                    
+                if ([forecast.weather rangeOfString:@"Sand"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"smokepic" ofType:@"png"];
+                    self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                                                                    
+                if ([forecast.weather rangeOfString:@"Ash"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"smokepic" ofType:@"png"];
+                    self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"na" ofType:@"png"];
+                    self.forecastImage2.image = [UIImage imageWithContentsOfFile:fullpath];
+                }
+                
+                break;
+                
+            case 2:
+                self.forecastImage3.contentMode = UIViewContentModeScaleAspectFit;
+                
+                if ([forecast.weather rangeOfString:@"Cloudy"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"cloudypic" ofType:@"png"];
+                    self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                    
+                    if ([forecast.weather rangeOfString:@"Clouds"].location != NSNotFound) {
+                        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"clouds" ofType:@"png"];
+                        self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                    } else
+                        
+                        if ([forecast.weather rangeOfString:@"Overcast"].location != NSNotFound) {
+                            NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"overcastpic" ofType:@"png"];
+                            self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                        } else
+                            
+                            if ([forecast.weather rangeOfString:@"Clear"].location != NSNotFound) {
+                                NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"sunny" ofType:@"png"];
+                                self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                            } else
+                                
+                                if ([forecast.weather rangeOfString:@"Rain"].location != NSNotFound) {
+                                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofrain" ofType:@"png"];
+                                    self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                                } else
+                                    
+                                    if ([forecast.weather rangeOfString:@"Drizzle"].location != NSNotFound) {
+                                        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"fogpic" ofType:@"png"];
+                                        self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                                    } else
+                                        
+                                        if ([forecast.weather rangeOfString:@"Snow"].location != NSNotFound) {
+                                            NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofsnow" ofType:@"png"];
+                                            self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                                        } else
+                                            
+                                            if ([forecast.weather rangeOfString:@"Thunder"].location != NSNotFound) {
+                                                NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofstrom" ofType:@"png"];
+                                                self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                                            } else
+                                                
+                                                if ([forecast.weather rangeOfString:@"Haze"].location != NSNotFound) {
+                                                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"hazepic" ofType:@"png"];
+                                                    self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                                                } else
+                                                    
+                                                    if ([forecast.weather rangeOfString:@"Fog"].location != NSNotFound) {
+                                                        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"fogpic" ofType:@"png"];
+                                                        self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                                                    } else
+                                                        
+                                                        if ([forecast.weather rangeOfString:@"Hail"].location != NSNotFound) {
+                                                            NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofrain" ofType:@"png"];
+                                                            self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                                                        } else
+                                                            
+                                                            if ([forecast.weather rangeOfString:@"Dust"].location != NSNotFound) {
+                                                                NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"smokepic" ofType:@"png"];
+                                                                self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                                                            } else
+                                                                
+                                                                if ([forecast.weather rangeOfString:@"Sand"].location != NSNotFound) {
+                                                                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"smokepic" ofType:@"png"];
+                                                                    self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                                                                } else
+                                                                    
+                                                                    if ([forecast.weather rangeOfString:@"Ash"].location != NSNotFound) {
+                                                                        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"smokepic" ofType:@"png"];
+                                                                        self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                                                                    } else {
+                                                                        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"na" ofType:@"png"];
+                                                                        self.forecastImage3.image = [UIImage imageWithContentsOfFile:fullpath];
+                                                                    }
+                
+                break;
+            case 3:
+                self.forecastImage4.contentMode = UIViewContentModeScaleAspectFit;
+                
+                if ([forecast.weather rangeOfString:@"Cloudy"].location != NSNotFound) {
+                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"cloudypic" ofType:@"png"];
+                    self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                } else
+                    
+                    if ([forecast.weather rangeOfString:@"Clouds"].location != NSNotFound) {
+                        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"clouds" ofType:@"png"];
+                        self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                    } else
+                        
+                        if ([forecast.weather rangeOfString:@"Overcast"].location != NSNotFound) {
+                            NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"overcastpic" ofType:@"png"];
+                            self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                        } else
+                            
+                            if ([forecast.weather rangeOfString:@"Clear"].location != NSNotFound) {
+                                NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"sunny" ofType:@"png"];
+                                self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                            } else
+                                
+                                if ([forecast.weather rangeOfString:@"Rain"].location != NSNotFound) {
+                                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofrain" ofType:@"png"];
+                                    self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                                } else
+                                    
+                                    if ([forecast.weather rangeOfString:@"Drizzle"].location != NSNotFound) {
+                                        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"fogpic" ofType:@"png"];
+                                        self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                                    } else
+                                        
+                                        if ([forecast.weather rangeOfString:@"Snow"].location != NSNotFound) {
+                                            NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofsnow" ofType:@"png"];
+                                            self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                                        } else
+                                            
+                                            if ([forecast.weather rangeOfString:@"Thunder"].location != NSNotFound) {
+                                                NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofstrom" ofType:@"png"];
+                                                self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                                            } else
+                                                
+                                                if ([forecast.weather rangeOfString:@"Haze"].location != NSNotFound) {
+                                                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"hazepic" ofType:@"png"];
+                                                    self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                                                } else
+                                                    
+                                                    if ([forecast.weather rangeOfString:@"Fog"].location != NSNotFound) {
+                                                        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"fogpic" ofType:@"png"];
+                                                        self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                                                    } else
+                                                        
+                                                        if ([forecast.weather rangeOfString:@"Hail"].location != NSNotFound) {
+                                                            NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"chanceofrain" ofType:@"png"];
+                                                            self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                                                        } else
+                                                            
+                                                            if ([forecast.weather rangeOfString:@"Dust"].location != NSNotFound) {
+                                                                NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"smokepic" ofType:@"png"];
+                                                                self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                                                            } else
+                                                                
+                                                                if ([forecast.weather rangeOfString:@"Sand"].location != NSNotFound) {
+                                                                    NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"smokepic" ofType:@"png"];
+                                                                    self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                                                                } else
+                                                                    
+                                                                    if ([forecast.weather rangeOfString:@"Ash"].location != NSNotFound) {
+                                                                        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"smokepic" ofType:@"png"];
+                                                                        self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                                                                    } else {
+                                                                        NSString* fullpath = [[NSBundle mainBundle] pathForResource:@"na" ofType:@"png"];
+                                                                        self.forecastImage4.image = [UIImage imageWithContentsOfFile:fullpath];
+                                                                    }
+                
+                break;
+
+            default:
+                break;
+        }
+        index++;
+    }
+    
     
     _downloadXMLData = nil;
 }
